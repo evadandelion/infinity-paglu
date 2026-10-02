@@ -1,0 +1,2277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Infinity Paglu 💙</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:'Nunito',sans-serif;
+    background:#e9f8ff;
+    color:#28506a;
+}
+
+/* =========================
+   BIRTHDAY INTRO
+========================= */
+
+#intro{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        180deg,
+        #7bd5ff,
+        #dff7ff 70%,
+        #fff5da
+    );
+
+    transition:1s;
+}
+
+.sparkles{
+    position:absolute;
+    inset:0;
+
+    background-image:
+    radial-gradient(
+        white 1.5px,
+        transparent 1.5px
+    );
+
+    background-size:90px 90px;
+    opacity:.55;
+
+    animation:sparkleMove 12s linear infinite;
+}
+
+@keyframes sparkleMove{
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-90px);
+    }
+}
+
+/* Clouds */
+
+.cloud{
+    position:absolute;
+    background:white;
+    border-radius:100px;
+    opacity:.85;
+}
+
+.cloud:before,
+.cloud:after{
+    content:"";
+    position:absolute;
+    background:white;
+    border-radius:50%;
+}
+
+.cloud:before{
+    width:75px;
+    height:75px;
+    left:25px;
+    top:-35px;
+}
+
+.cloud:after{
+    width:60px;
+    height:60px;
+    right:25px;
+    top:-25px;
+}
+
+.cloud1{
+    width:210px;
+    height:55px;
+    left:5%;
+    top:18%;
+}
+
+.cloud2{
+    width:180px;
+    height:50px;
+    right:8%;
+    top:27%;
+}
+
+.cloud3{
+    width:250px;
+    height:60px;
+    right:20%;
+    bottom:13%;
+}
+
+/* Intro content */
+
+.intro-content{
+    position:relative;
+    z-index:3;
+    text-align:center;
+    width:92%;
+    max-width:750px;
+}
+
+.balloon-text{
+    font-size:40px;
+    animation:float 2.5s ease-in-out infinite;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(-9px);
+    }
+}
+
+.intro-small{
+    margin-top:15px;
+    color:#17618a;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.intro-title{
+    font-family:'Baloo 2',cursive;
+    font-size:clamp(50px,8vw,90px);
+    line-height:.9;
+    color:#12628c;
+
+    margin:12px 0;
+
+    text-shadow:
+    3px 4px white,
+    6px 7px rgba(27,100,140,.15);
+}
+
+.intro-name{
+    font-family:'Baloo 2',cursive;
+    font-size:30px;
+    color:#557a8e;
+}
+
+/* Door */
+
+.door-container{
+    display:inline-block;
+
+    padding:12px;
+
+    margin-top:22px;
+
+    background:white;
+
+    border:5px solid #ff6489;
+
+    border-radius:28px;
+
+    box-shadow:
+    0 15px 40px rgba(25,100,140,.2);
+}
+
+.door{
+    width:230px;
+    height:270px;
+
+    border-radius:20px;
+
+    border:5px solid #14699d;
+
+    background:
+    linear-gradient(
+        145deg,
+        #52c9f5,
+        #238dcc
+    );
+
+    color:white;
+
+    position:relative;
+
+    transition:.3s;
+
+    box-shadow:
+    inset -12px -12px 0 rgba(0,0,0,.08);
+}
+
+.door:hover{
+    transform:
+    translateY(-8px)
+    rotate(-1deg);
+
+    box-shadow:
+    0 15px 35px rgba(20,100,150,.25),
+    inset -12px -12px 0 rgba(0,0,0,.08);
+}
+
+.infinity{
+    font-family:Arial;
+    font-size:70px;
+    font-weight:bold;
+
+    margin-top:65px;
+
+    text-shadow:
+    3px 4px #17618c;
+}
+
+.door-text{
+    font-family:'Baloo 2';
+    font-size:20px;
+    font-weight:800;
+}
+
+.handle{
+    position:absolute;
+
+    width:13px;
+    height:13px;
+
+    border-radius:50%;
+
+    background:white;
+
+    right:22px;
+    top:50%;
+}
+
+/* Password */
+
+.password-box{
+    display:none;
+
+    width:390px;
+    max-width:90%;
+
+    margin:18px auto 0;
+}
+
+.password-box input{
+    width:100%;
+
+    padding:14px;
+
+    border:
+    3px solid #67bce2;
+
+    border-radius:18px;
+
+    outline:none;
+
+    text-align:center;
+
+    font-size:15px;
+}
+
+.password-box button{
+    margin-top:10px;
+
+    padding:11px 25px;
+
+    border:0;
+
+    border-radius:16px;
+
+    background:#ff6d96;
+
+    color:white;
+
+    font-weight:800;
+
+    box-shadow:
+    0 5px 0 #d84f76;
+}
+
+.error{
+    height:18px;
+
+    margin-top:7px;
+
+    color:#d74d72;
+
+    font-size:13px;
+    font-weight:700;
+}
+
+
+/* =========================
+   MAIN APP
+========================= */
+
+#app{
+    display:none;
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        180deg,
+        #f4fcff,
+        #fff9ed
+    );
+}
+
+/* Sidebar */
+
+.sidebar{
+    position:fixed;
+
+    top:0;
+    left:0;
+    bottom:0;
+
+    width:245px;
+
+    padding:20px 14px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #4cc7f3,
+        #248fca
+    );
+
+    color:white;
+
+    box-shadow:
+    8px 0 25px rgba(20,100,140,.15);
+
+    z-index:10;
+}
+
+.logo{
+    font-family:'Baloo 2';
+    font-size:30px;
+    font-weight:800;
+
+    text-align:center;
+
+    padding:10px;
+
+    background:
+    rgba(255,255,255,.2);
+
+    border-radius:20px;
+
+    margin-bottom:20px;
+}
+
+.navigation{
+    display:grid;
+    gap:7px;
+}
+
+.navigation button{
+    border:0;
+
+    background:transparent;
+
+    color:white;
+
+    text-align:left;
+
+    padding:11px 14px;
+
+    border-radius:15px;
+
+    font-size:15px;
+    font-weight:800;
+
+    transition:.2s;
+}
+
+.navigation button:hover,
+.navigation button.active{
+    background:white;
+    color:#17618b;
+
+    transform:
+    translateX(5px);
+}
+
+.sidebar-bottom{
+    position:absolute;
+
+    bottom:20px;
+
+    left:18px;
+    right:18px;
+
+    padding:12px;
+
+    text-align:center;
+
+    font-size:12px;
+
+    background:
+    rgba(255,255,255,.18);
+
+    border-radius:15px;
+}
+
+
+/* Main */
+
+.main{
+    margin-left:245px;
+
+    min-height:100vh;
+
+    padding:30px;
+}
+
+.topbar{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.page-title{
+    font-family:'Baloo 2';
+
+    font-size:30px;
+
+    color:#17618b;
+}
+
+.date{
+    background:white;
+
+    padding:10px 16px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 8px 25px rgba(20,100,140,.1);
+
+    font-weight:800;
+}
+
+
+/* Pages */
+
+.page{
+    display:none;
+
+    animation:
+    pageIn .4s ease;
+}
+
+.page.active{
+    display:block;
+}
+
+@keyframes pageIn{
+
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+
+}
+
+
+/* Hero */
+
+.hero{
+    position:relative;
+
+    overflow:hidden;
+
+    padding:32px;
+
+    border-radius:27px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #50c8f4,
+        #278dca
+    );
+
+    box-shadow:
+    0 14px 35px rgba(20,100,140,.15);
+}
+
+.hero h1{
+    font-family:'Baloo 2';
+
+    font-size:45px;
+
+    margin-bottom:4px;
+}
+
+.hero p{
+    max-width:700px;
+
+    line-height:1.6;
+
+    color:#e8f8ff;
+}
+
+.hero-character{
+    position:absolute;
+
+    right:30px;
+    bottom:-5px;
+
+    font-size:95px;
+
+    animation:
+    float 3s ease-in-out infinite;
+}
+
+
+/* Cards */
+
+.grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:16px;
+
+    margin-top:18px;
+}
+
+.card{
+    background:white;
+
+    border:
+    3px solid #e3f2f7;
+
+    border-radius:22px;
+
+    padding:20px;
+
+    box-shadow:
+    0 10px 28px rgba(20,100,140,.1);
+
+    transition:.25s;
+}
+
+.card:hover{
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+    0 16px 35px rgba(20,100,140,.15);
+}
+
+.card h2{
+    font-family:'Baloo 2';
+
+    font-size:26px;
+
+    color:#17618b;
+
+    margin:5px 0;
+}
+
+.card p{
+    color:#718593;
+
+    line-height:1.55;
+}
+
+.card-icon{
+    font-size:36px;
+}
+
+.wide{
+    grid-column:
+    span 2;
+}
+
+
+/* Progress */
+
+.progress{
+    width:100%;
+
+    height:13px;
+
+    margin-top:15px;
+
+    background:#e5f0f5;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.progress span{
+    display:block;
+
+    height:100%;
+
+    width:36%;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #42c2f3,
+        #ff7ba4
+    );
+
+    animation:
+    progress 1.5s ease;
+}
+
+@keyframes progress{
+    from{
+        width:0;
+    }
+}
+
+
+/* Countdown */
+
+.countdown{
+    font-family:'Baloo 2';
+
+    font-size:70px;
+
+    color:#17618b;
+
+    line-height:1;
+}
+
+
+/* Timer */
+
+.timer{
+    text-align:center;
+}
+
+.timer-number{
+    font-family:'Baloo 2';
+
+    font-size:75px;
+
+    color:#17618b;
+}
+
+.timer button{
+    padding:10px 18px;
+
+    border:0;
+
+    border-radius:14px;
+
+    margin:4px;
+
+    background:#ff78a0;
+
+    color:white;
+
+    font-weight:800;
+}
+
+
+/* Planner */
+
+.todo{
+    display:flex;
+
+    gap:8px;
+}
+
+.todo input{
+    flex:1;
+
+    padding:12px;
+
+    border:
+    2px solid #cfe8f2;
+
+    border-radius:13px;
+
+    outline:none;
+}
+
+.todo button{
+    background:#45b9e8;
+
+    color:white;
+
+    padding:0 18px;
+
+    border-radius:13px;
+
+    font-weight:800;
+}
+
+.task{
+    padding:10px 0;
+
+    border-bottom:
+    1px dashed #d5e6ed;
+}
+
+
+/* Journal */
+
+textarea{
+    width:100%;
+
+    min-height:230px;
+
+    resize:vertical;
+
+    border:
+    2px solid #cfe8f2;
+
+    border-radius:18px;
+
+    padding:16px;
+
+    outline:none;
+
+    font-family:'Nunito';
+}
+
+
+/* Letter */
+
+.letter{
+    background:#fffdf1;
+
+    border:
+    3px dashed #efc557;
+
+    font-family:'Baloo 2';
+
+    font-size:21px;
+
+    line-height:1.6;
+}
+
+.letter h1{
+    color:#ff668e;
+}
+
+
+/* Birthday */
+
+.birthday{
+    text-align:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fff0f6,
+        #eaf9ff
+    );
+}
+
+.birthday h1{
+    font-family:'Baloo 2';
+
+    font-size:65px;
+
+    color:#ff668f;
+}
+
+.confetti{
+    font-size:38px;
+
+    letter-spacing:8px;
+
+    margin:15px;
+}
+
+
+/* Mobile */
+
+@media(max-width:800px){
+
+    .sidebar{
+        width:75px;
+
+        padding:
+        15px 8px;
+    }
+
+    .logo{
+        font-size:0;
+    }
+
+    .logo::after{
+        content:"∞";
+
+        font-size:32px;
+    }
+
+    .navigation button{
+        font-size:0;
+
+        text-align:center;
+    }
+
+    .navigation button:first-letter{
+        font-size:22px;
+    }
+
+    .sidebar-bottom{
+        display:none;
+    }
+
+    .main{
+        margin-left:75px;
+
+        padding:18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .wide{
+        grid-column:auto;
+    }
+
+    .hero-character{
+        font-size:65px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .intro-title{
+        font-size:50px;
+    }
+
+    .door{
+        width:200px;
+        height:250px;
+    }
+
+    .password-box{
+        width:90%;
+    }
+
+    .topbar .date{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     BIRTHDAY OPENING
+================================================== -->
+
+<section id="intro">
+
+    <div class="sparkles"></div>
+
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+
+
+    <div class="intro-content">
+
+        <div class="balloon-text">
+            🎈 ✨ 🎈
+        </div>
+
+        <div class="intro-small">
+            A little world made for one person
+        </div>
+
+        <h1 class="intro-title">
+            HAPPY BIRTHDAY!
+        </h1>
+
+        <div class="intro-name">
+            Infinity Paglu 💙
+        </div>
+
+
+        <div class="door-container">
+
+            <button
+                class="door"
+                id="doorButton"
+            >
+
+                <div class="infinity">
+                    ∞
+                </div>
+
+                <div class="door-text">
+                    ENTER YOUR CORNER
+                </div>
+
+                <span class="handle"></span>
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="password-box"
+            id="passwordBox"
+        >
+
+            <input
+                id="password"
+                type="password"
+                placeholder="🔐 Enter the secret password"
+            >
+
+            <button id="enterButton">
+                Open my corner ✨
+            </button>
+
+            <div
+                class="error"
+                id="error"
+            ></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     APP
+================================================== -->
+
+<section id="app">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            ∞ PAGLU
+        </div>
+
+
+        <div class="navigation">
+
+            <button
+                class="active"
+                data-page="home"
+            >
+                🏠 Home
+            </button>
+
+            <button data-page="mission">
+                🚀 JEE Mission
+            </button>
+
+            <button data-page="study">
+                📚 Study Room
+            </button>
+
+            <button data-page="timer">
+                ⏰ Focus Timer
+            </button>
+
+            <button data-page="planner">
+                📅 Planner
+            </button>
+
+            <button data-page="bad">
+                🌧️ Bad Day
+            </button>
+
+            <button data-page="journal">
+                💭 Journal
+            </button>
+
+            <button data-page="memories">
+                📸 Memories
+            </button>
+
+            <button data-page="letter">
+                💌 From Me
+            </button>
+
+            <button data-page="birthday">
+                🎂 Birthday
+            </button>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+            ✨ This little corner is always yours.
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <div class="topbar">
+
+            <div
+                class="page-title"
+                id="pageTitle"
+            >
+                Hey, Infinity Paglu! 💙
+            </div>
+
+            <div class="date">
+                20 • 10 • 2026
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= HOME ================= -->
+
+        <section
+            class="page active"
+            id="home"
+        >
+
+            <div class="hero">
+
+                <h1>
+                    Welcome to your corner! ✨
+                </h1>
+
+                <p>
+                    This isn't just a birthday page.
+                    It's your little digital world —
+                    for JEE preparation, plans, memories,
+                    random thoughts, and days when you
+                    simply need somewhere nice to be.
+                </p>
+
+                <div class="hero-character">
+                    🧸
+                </div>
+
+            </div>
+
+
+            <div class="grid">
+
+
+                <div class="card wide">
+
+                    <div class="card-icon">
+                        🚀
+                    </div>
+
+                    <h2>
+                        JEE Mission
+                    </h2>
+
+                    <p id="homeCountdown">
+                        Loading countdown...
+                    </p>
+
+                    <div class="progress">
+                        <span></span>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        💙
+                    </div>
+
+                    <h2>
+                        Today's Reminder
+                    </h2>
+
+                    <p>
+                        You don't have to finish
+                        everything today.
+                        Just take the next step.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        ✨
+                    </div>
+
+                    <h2>
+                        Quick Thought
+                    </h2>
+
+                    <p>
+                        Small progress is still
+                        progress.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= MISSION ================= -->
+
+        <section
+            class="page"
+            id="mission"
+        >
+
+            <div class="hero">
+
+                <h1>
+                    🚀 JEE Mission
+                </h1>
+
+                <p>
+                    112 days isn't one giant mountain.
+                    It's just a collection of small days.
+                </p>
+
+                <div class="hero-character">
+                    🌟
+                </div>
+
+            </div>
+
+
+            <div class="grid">
+
+                <div class="card wide">
+
+                    <h2>
+                        Days Remaining
+                    </h2>
+
+                    <div
+                        class="countdown"
+                        id="days"
+                    >
+                        112
+                    </div>
+
+                    <p>
+                        Target:
+                        22 January 2027
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        💫
+                    </div>
+
+                    <h2>
+                        Mission Rule
+                    </h2>
+
+                    <p>
+                        Study.
+                        Rest.
+                        Reset.
+                        Repeat.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= STUDY ================= -->
+
+        <section
+            class="page"
+            id="study"
+        >
+
+            <div class="hero">
+
+                <h1>
+                    📚 Study Room
+                </h1>
+
+                <p>
+                    Your little JEE command centre.
+                </p>
+
+            </div>
+
+
+            <div class="grid">
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        ⚡
+                    </div>
+
+                    <h2>
+                        Physics
+                    </h2>
+
+                    <p>
+                        Chapters • Formulas • Questions
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🧪
+                    </div>
+
+                    <h2>
+                        Chemistry
+                    </h2>
+
+                    <p>
+                        Concepts • Reactions • Revision
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        📐
+                    </div>
+
+                    <h2>
+                        Maths
+                    </h2>
+
+                    <p>
+                        Problems • Practice • Mistakes
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= TIMER ================= -->
+
+        <section
+            class="page"
+            id="timer"
+        >
+
+            <div class="hero">
+
+                <h1>
+                    ⏰ Focus Timer
+                </h1>
+
+                <p>
+                    One session.
+                    One target.
+                    No need to think about everything else.
+                </p>
+
+            </div>
+
+
+            <div
+                class="card timer"
+                style="margin-top:18px"
+            >
+
+                <div
+                    class="timer-number"
+                    id="timerDisplay"
+                >
+                    25:00
+                </div>
+
+                <button
+                    onclick="startTimer()"
+                >
+                    ▶ Start
+                </button>
+
+                <button
+                    onclick="resetTimer()"
+                >
+                    ↺ Reset
+                </button>
+
+                <p id="timerMessage">
+                    Ready when you are.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= PLANNER ================= -->
+
+        <section
+            class="page"
+            id="planner"
+        >
+
+            <div class="hero">
+
+                <h1>
+                    📅 Daily Planner
+                </h1>
+
+                <p>
+                    Add today's little missions.
+                    They stay saved in this browser.
+                </p>
+
+            </div>
+
+
+            <div
+                class="card"
+                style="margin-top:18px"
+            >
+
+                <div class="todo">
+
+                    <input
+                        id="taskInput"
+                        placeholder="e.g. Revise electrostatics"
+                    >
+
+                    <button
+                        onclick="addTask()"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+
+                <div id="tasks"></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= BAD DAY ================= -->
+
+        <section
+            class="page"
+            id="bad"
+        >
+
+            <div class="hero">
+
+                <h1>
+                    🌧️ Bad Day Room
+                </h1>
+
+                <p>
+                    For the days when everything
+                    feels a little too much.
+                    No productivity pressure here.
+                </p>
+
+                <div class="hero-character">
+                    ☁️
+                </div>
+
+            </div>
+
+
+            <div class="grid">
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🫶
+                    </div>
+
+                    <h2>
+                        Pause
+                    </h2>
+
+                    <p>
+                        Drink some water.
+                        Put the books down for a few minutes.
+                        Breathe slowly.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🌱
+                    </div>
+
+                    <h2>
+                        One Tiny Step
+                    </h2>
+
+                    <p>
+                        When you're ready,
+                        choose one small thing.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        💬
+                    </div>
+
+                    <h2>
+                        Remember
+                    </h2>
+
+                    <p>
+                        Bad days are allowed.
+                        Talk to someone you trust
+                        if you need company.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= JOURNAL ================= -->
+
+        <section
+            class="page"
+            id="journal"
+        >
+
+            <div class="hero">
+
+                <h1>
+                    💭 Journal
+                </h1>
+
+                <p>
+                    Write anything.
+                    It saves on this device/browser.
+                </p>
+
+            </div>
+
+
+            <div
+                class="card"
+                style="margin-top:18px"
+            >
+
+                <textarea
+                    id="journalText"
+                    placeholder="Dear future me..."
+                ></textarea>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= MEMORIES ================= -->
+
+        <section
+            class="page"
+            id="memories"
+        >
+
+            <div class="hero">
+
+                <h1>
+                    📸 Memories
+                </h1>
+
+                <p>
+                    A tiny scrapbook waiting
+                    for your favourite moments.
+                </p>
+
+            </div>
+
+
+            <div class="grid">
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🌼
+                    </div>
+
+                    <h2>
+                        Memory #01
+                    </h2>
+
+                    <p>
+                        Add a favourite memory here.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🎀
+                    </div>
+
+                    <h2>
+                        Memory #02
+                    </h2>
+
+                    <p>
+                        Add a photo or tiny story.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        ⭐
+                    </div>
+
+                    <h2>
+                        Memory #03
+                    </h2>
+
+                    <p>
+                        Some moments deserve
+                        their own little space.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= LETTER ================= -->
+
+        <section
+            class="page"
+            id="letter"
+        >
+
+            <div class="card letter">
+
+                <h1>
+                    💌 From Me
+                </h1>
+
+                <br>
+
+                <p>
+                    Hey, Infinity Paglu,
+                </p>
+
+                <br>
+
+                <p>
+                    I wanted to make you something
+                    you could actually keep using —
+                    not just another birthday message
+                    that gets buried in a chat.
+                </p>
+
+                <br>
+
+                <p>
+                    You have been there during some
+                    difficult moments for me, and I
+                    wanted this little corner to remind
+                    you that you deserve a place to
+                    pause too.
+                </p>
+
+                <br>
+
+                <p>
+                    For the JEE days, the tired days,
+                    the ridiculous days, and the days
+                    that unexpectedly turn out good —
+                    I hope this tiny world makes at
+                    least one of them a little brighter.
+                </p>
+
+                <br>
+
+                <p>
+                    Happy Birthday. 💙
+                </p>
+
+                <br>
+
+                <p>
+                    — from me ✨
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= BIRTHDAY ================= -->
+
+        <section
+            class="page"
+            id="birthday"
+        >
+
+            <div class="card birthday">
+
+                <div class="confetti">
+                    🎉 🎈 ✨ 🎂 ✨ 🎈 🎉
+                </div>
+
+                <h1>
+                    Happy Birthday! 💙
+                </h1>
+
+                <h2>
+                    20 • 10 • 2026
+                </h2>
+
+                <p>
+                    Welcome to your corner,
+                    Infinity Paglu.
+                </p>
+
+                <div class="confetti">
+                    🧸 💙 🪄 🌟 🎁
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</section>
+
+
+
+<script>
+
+/* ==========================================
+   PASSWORD
+========================================== */
+
+const correctPassword =
+"- @infinitypaglu";
+
+
+const doorButton =
+document.getElementById("doorButton");
+
+const passwordBox =
+document.getElementById("passwordBox");
+
+const password =
+document.getElementById("password");
+
+const enterButton =
+document.getElementById("enterButton");
+
+const error =
+document.getElementById("error");
+
+
+doorButton.addEventListener(
+    "click",
+    function(){
+
+        passwordBox.style.display =
+        "block";
+
+        password.focus();
+
+    }
+);
+
+
+enterButton.addEventListener(
+    "click",
+    unlock
+);
+
+
+password.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+            unlock();
+        }
+
+    }
+);
+
+
+function unlock(){
+
+    if(password.value === correctPassword){
+
+        const intro =
+        document.getElementById("intro");
+
+        intro.style.opacity = "0";
+
+        intro.style.transform =
+        "scale(1.05)";
+
+        setTimeout(
+            function(){
+
+                intro.style.display =
+                "none";
+
+                document.getElementById("app")
+                .style.display =
+                "block";
+
+                window.scrollTo(0,0);
+
+            },
+            800
+        );
+
+    }
+
+    else{
+
+        error.textContent =
+        "Hmm... wrong secret word 💭";
+
+        password.value = "";
+
+    }
+
+}
+
+
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+const pageTitles = {
+
+    home:
+    "Hey, Infinity Paglu! 💙",
+
+    mission:
+    "Your JEE Mission 🚀",
+
+    study:
+    "Study Time 📚",
+
+    timer:
+    "Let's Focus ⏰",
+
+    planner:
+    "Today's Missions 📅",
+
+    bad:
+    "It's Okay to Pause 🌧️",
+
+    journal:
+    "Your Thoughts 💭",
+
+    memories:
+    "Little Memories 📸",
+
+    letter:
+    "A Letter for You 💌",
+
+    birthday:
+    "It's Your Day! 🎂"
+
+};
+
+
+const navigationButtons =
+document.querySelectorAll(
+    ".navigation button"
+);
+
+
+navigationButtons.forEach(
+    function(button){
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                navigationButtons
+                .forEach(
+                    function(btn){
+                        btn.classList.remove(
+                            "active"
+                        );
+                    }
+                );
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                document
+                .querySelectorAll(".page")
+                .forEach(
+                    function(page){
+                        page.classList.remove(
+                            "active"
+                        );
+                    }
+                );
+
+
+                const page =
+                document.getElementById(
+                    button.dataset.page
+                );
+
+
+                page.classList.add(
+                    "active"
+                );
+
+
+                document.getElementById(
+                    "pageTitle"
+                ).textContent =
+                pageTitles[
+                    button.dataset.page
+                ];
+
+            }
+        );
+
+    }
+);
+
+
+
+/* ==========================================
+   JEE COUNTDOWN
+========================================== */
+
+const examDate =
+new Date("2027-01-22T00:00:00");
+
+
+function updateCountdown(){
+
+    const now =
+    new Date();
+
+    const difference =
+    examDate - now;
+
+    const days =
+    Math.max(
+        0,
+        Math.ceil(
+            difference /
+            (1000 * 60 * 60 * 24)
+        )
+    );
+
+
+    document.getElementById(
+        "days"
+    ).textContent =
+    days;
+
+
+    document.getElementById(
+        "homeCountdown"
+    ).textContent =
+    days +
+    " days until January 22, 2027.";
+
+}
+
+
+updateCountdown();
+
+
+
+/* ==========================================
+   FOCUS TIMER
+========================================== */
+
+let timerSeconds =
+25 * 60;
+
+let timerInterval =
+null;
+
+
+function displayTimer(){
+
+    const minutes =
+    Math.floor(
+        timerSeconds / 60
+    )
+    .toString()
+    .padStart(2,"0");
+
+
+    const seconds =
+    (timerSeconds % 60)
+    .toString()
+    .padStart(2,"0");
+
+
+    document.getElementById(
+        "timerDisplay"
+    ).textContent =
+    minutes + ":" + seconds;
+
+}
+
+
+function startTimer(){
+
+    if(timerInterval)
+    return;
+
+
+    document.getElementById(
+        "timerMessage"
+    ).textContent =
+    "Focus mode: you've got this 💙";
+
+
+    timerInterval =
+    setInterval(
+        function(){
+
+            if(timerSeconds <= 0){
+
+                clearInterval(
+                    timerInterval
+                );
+
+                timerInterval =
+                null;
+
+                document.getElementById(
+                    "timerMessage"
+                ).textContent =
+                "Session complete! ✨";
+
+                return;
+
+            }
+
+
+            timerSeconds--;
+
+            displayTimer();
+
+        },
+        1000
+    );
+
+}
+
+
+function resetTimer(){
+
+    clearInterval(
+        timerInterval
+    );
+
+    timerInterval =
+    null;
+
+    timerSeconds =
+    25 * 60;
+
+    displayTimer();
+
+    document.getElementById(
+        "timerMessage"
+    ).textContent =
+    "Ready when you are.";
+
+}
+
+
+displayTimer();
+
+
+
+/* ==========================================
+   PLANNER
+========================================== */
+
+let tasks =
+JSON.parse(
+    localStorage.getItem(
+        "infinityTasks"
+    ) || "[]"
+);
+
+
+function renderTasks(){
+
+    const container =
+    document.getElementById(
+        "tasks"
+    );
+
+
+    container.innerHTML = "";
+
+
+    tasks.forEach(
+        function(task,index){
+
+            const item =
+            document.createElement(
+                "div"
+            );
+
+            item.className =
+            "task";
+
+
+            item.innerHTML =
+            "☐ " +
+            task +
+            " ";
+
+
+            const remove =
+            document.createElement(
+                "button"
+            );
+
+
+            remove.textContent =
+            "×";
+
+
+            remove.style.float =
+            "right";
+
+
+            remove.style.border =
+            "0";
+
+
+            remove.style.background =
+            "transparent";
+
+
+            remove.style.color =
+            "#e96b91";
+
+
+            remove.style.fontWeight =
+            "bold";
+
+
+            remove.onclick =
+            function(){
+
+                tasks.splice(
+                    index,
+                    1
+                );
+
+
+                localStorage.setItem(
+                    "infinityTasks",
+                    JSON.stringify(tasks)
+                );
+
+
+                renderTasks();
+
+            };
+
+
+            item.appendChild(
+                remove
+            );
+
+
+            container.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+function addTask(){
+
+    const input =
+    document.getElementById(
+        "taskInput"
+    );
+
+
+    const value =
+    input.value.trim();
+
+
+    if(!value)
+    return;
+
+
+    tasks.push(value);
+
+
+    localStorage.setItem(
+        "infinityTasks",
+        JSON.stringify(tasks)
+    );
+
+
+    input.value = "";
+
+
+    renderTasks();
+
+}
+
+
+renderTasks();
+
+
+
+/* ==========================================
+   JOURNAL
+========================================== */
+
+const journal =
+document.getElementById(
+    "journalText"
+);
+
+
+journal.value =
+localStorage.getItem(
+    "infinityJournal"
+) || "";
+
+
+journal.addEventListener(
+    "input",
+    function(){
+
+        localStorage.setItem(
+            "infinityJournal",
+            journal.value
+        );
+
+    }
+);
+
+</script>
+
+</body>
+</html>
